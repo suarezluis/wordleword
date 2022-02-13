@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Motivation
+
+For those that don't have the time to wait and can't go to sleep without knowing what the word was.
+
+# Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

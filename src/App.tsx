@@ -4,8 +4,10 @@ import "./App.css";
 import styled from "styled-components";
 import words from "./words";
 import differenceInDays from "date-fns/differenceInDays";
+import { ReactComponent as GithubLogo } from "./Octicons-mark-github.svg";
 
 const wordleURL = "https://www.nytimes.com/games/wordle/index.html";
+const githubURL = "https://github.com/suarezluis/wordleword";
 
 function App() {
   const [isWordRevealed, setIsWordRevealed] = useState(false);
@@ -21,13 +23,21 @@ function App() {
 
   return (
     <Wrapper className="App">
+      <StyledGithubLogo
+        onClick={() => {
+          window.open(githubURL);
+        }}
+      />
       <Header>
         Wordle of The Day:{" "}
         {isWordRevealed && (
           <WordOfTheDay>
-            {todayWord.split("").map((letter) => {
-              return <Letter>{letter.toUpperCase()}</Letter>;
-            })}
+            {todayWord
+              .toUpperCase()
+              .split("")
+              .map((letter, index) => {
+                return <Letter key={`letter-index-${index}`}>{letter}</Letter>;
+              })}
           </WordOfTheDay>
         )}
         <RevealButton onClick={toggleReveal} isWordRevealed={isWordRevealed}>
@@ -93,4 +103,13 @@ const Letter = styled.div`
   margin: 0 2px;
   width: 20px;
   height: 25px;
+`;
+
+const StyledGithubLogo = styled(GithubLogo)`
+  position: absolute;
+  top: 9px;
+  left: 9px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 `;
