@@ -24,11 +24,13 @@ function App() {
 
   return (
     <Wrapper className="App">
-      <StyledGithubLogo
-        onClick={() => {
-          window.open(githubURL);
-        }}
-      />
+      {!isWordRevealed && (
+        <StyledGithubLogo
+          onClick={() => {
+            window.open(githubURL);
+          }}
+        />
+      )}
       <Header>
         Wordle of The Day:{" "}
         {isWordRevealed && (
