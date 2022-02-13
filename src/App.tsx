@@ -6,6 +6,7 @@ import words from "./words";
 import differenceInDays from "date-fns/differenceInDays";
 import { ReactComponent as GithubLogo } from "./Octicons-mark-github.svg";
 
+const xFrameByPassURL = "https://x-frame-options-suarezluis.herokuapp.com/";
 const wordleURL = "https://www.nytimes.com/games/wordle/index.html";
 const githubURL = "https://github.com/suarezluis/wordleword";
 
@@ -44,7 +45,10 @@ function App() {
           {isWordRevealed ? "Hide" : "Reveal"}
         </RevealButton>
       </Header>
-      <Iframe src={wordleURL} ref={iframeRef}></Iframe>
+      <Iframe
+        src={`${xFrameByPassURL}?url=${wordleURL}`}
+        ref={iframeRef}
+      ></Iframe>
 
       <Bottom></Bottom>
     </Wrapper>
