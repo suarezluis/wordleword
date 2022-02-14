@@ -14,7 +14,9 @@ function App() {
   const [isWordRevealed, setIsWordRevealed] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const launchDate = new Date("2021-06-19");
-  const daysSince = differenceInDays(new Date(), launchDate);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const daysSince = differenceInDays(today, launchDate);
   const wordIndex =
     daysSince <= words.length ? daysSince : daysSince - words.length;
   const todayWord = words[wordIndex];
